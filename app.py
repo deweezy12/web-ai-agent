@@ -32,8 +32,7 @@ def chat(message, history):
 # Create Gradio interface
 demo = gr.ChatInterface(
     fn=chat,
-    title="AI Chat",
-    theme="soft"
+    title="AI Chat"
 )
 
 if __name__ == "__main__":
