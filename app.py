@@ -7,10 +7,11 @@ from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 with open("prompt.txt", "r", encoding="utf-8") as f:
     SYSTEM_PROMPT = f.read()
 
-# Initialize the model
+# Initialize the model with streaming
 llm = ChatAnthropic(
     model="claude-3-5-haiku-20241022",
-    api_key=os.environ.get("ANTHROPIC_API_KEY")
+    api_key=os.environ.get("ANTHROPIC_API_KEY"),
+    streaming=True
 )
 
 def chat(message, history):
@@ -22,12 +23,15 @@ def chat(message, history):
 
     messages.append(HumanMessage(content=message))
 
-    response = llm.invoke(messages)
-    return response.content
+    # Stream response
+    response = ""
+    for chunk in llm.stream(messages):
+        response += chunk.content
+        yield response
 
 demo = gr.ChatInterface(
     fn=chat,
-    title="Hautliebe & Laser - Beautyberater"
+    title="Reddsoligarch Labs"
 )
 
 if __name__ == "__main__":
