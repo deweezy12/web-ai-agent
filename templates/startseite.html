@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Startseite | {{ business.name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Fliesenfachbetrieb in Wuppertal</p>
+    <h1>Saubere Fliesenarbeiten mit klarem Ergebnis</h1>
+    <p>
+      {{ business.owner }} und Team unterstützen Sie bei Neuverlegung, Sanierung und Reparatur.
+      Klar geplant, ordentlich ausgeführt.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Jetzt Anfrage stellen</a>
+      <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt</a>
+    </div>
+  </div>
+  <div class="hero-media" aria-hidden="true">
+    <div class="placeholder-tile"></div>
+  </div>
+</section>
+
+<section class="card-grid">
+  <article class="card">
+    <h2>Leistungen</h2>
+    <ul>
+      {% for service in services %}
+      <li>{{ service }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+  <article class="card">
+    <h2>Warum wir</h2>
+    <p>Zuverlässige Absprachen, präzise Ausführung und ein sauberer Abschluss jeder Baustelle.</p>
+  </article>
+  <article class="card">
+    <h2>Region</h2>
+    <p>Wuppertal und Umgebung. Kurze Wege, schnelle Rückmeldung.</p>
+  </article>
+</section>
+{% endblock %}

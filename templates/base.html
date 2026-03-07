@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ business.name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="{{ url_for('startseite') }}" class="brand">
+          <span class="brand-mark">VS</span>
+          <span class="brand-text">{{ business.owner }}</span>
+        </a>
+        <nav class="top-nav" aria-label="Hauptnavigation">
+          <a href="{{ url_for('startseite') }}" class="{% if request.path == '/' %}active{% endif %}">Startseite</a>
+          <a href="{{ url_for('ueber_uns') }}" class="{% if request.path == '/ueber-uns' %}active{% endif %}">Über uns</a>
+          <a href="{{ url_for('anfrage_stellen') }}" class="{% if request.path == '/anfrage-stellen' %}active{% endif %}">Anfrage stellen</a>
+          <a href="{{ url_for('kontakt') }}" class="{% if request.path == '/kontakt' %}active{% endif %}">Kontakt</a>
+          <a href="{{ url_for('live_chat') }}" class="{% if request.path == '/live-chat' %}active{% endif %}">Live Chat</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p>{{ business.name }} · {{ business.address_line_2 }}</p>
+        <div class="footer-links">
+          <a href="{{ url_for('impressum') }}">Impressum</a>
+          <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

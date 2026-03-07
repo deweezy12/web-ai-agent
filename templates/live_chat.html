@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Live Chat | {{ business.name }}{% endblock %}
+{% block content %}
+<section class="content-narrow">
+  <h1>Live Chat</h1>
+  <p>Stellen Sie Ihre Frage direkt im Chat. Antworten können durch Websuche ergänzt werden.</p>
+
+  <div class="chat-shell" id="chat-shell">
+    <div class="chat-log" id="chat-log" aria-live="polite"></div>
+    <form class="chat-form" id="chat-form">
+      <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
+      <button type="submit" class="btn btn-primary" id="chat-send">Senden</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

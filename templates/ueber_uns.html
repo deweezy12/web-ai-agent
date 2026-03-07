@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Über uns | {{ business.name }}{% endblock %}
+{% block content %}
+<section class="content-narrow">
+  <h1>Über uns</h1>
+  <p>
+    {{ business.name }} steht für handwerkliche Fliesenarbeiten in Wuppertal.
+    Wir begleiten Projekte vom ersten Aufmaß bis zur finalen Verfugung.
+  </p>
+  <p>
+    Unser Fokus liegt auf klarer Beratung, realistischer Planung und langlebigen Lösungen
+    für Bad, Küche, Wohnbereich und gewerbliche Flächen.
+  </p>
+  <p>
+    Für eine erste Einschätzung nutzen Sie die Seite <a href="{{ url_for('anfrage_stellen') }}">Anfrage stellen</a>
+    oder kontaktieren Sie uns direkt.
+  </p>
+</section>
+{% endblock %}

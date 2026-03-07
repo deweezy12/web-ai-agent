@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Kontakt | {{ business.name }}{% endblock %}
+{% block content %}
+<section class="content-narrow">
+  <h1>Kontakt</h1>
+  <div class="contact-card">
+    <p><strong>{{ business.name }}</strong></p>
+    <p>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</p>
+    <p>Telefon: <a href="tel:+49202478880">{{ business.phone }}</a></p>
+  </div>
+  <p>
+    Für eine schnelle Bearbeitung senden Sie bitte Eckdaten über
+    <a href="{{ url_for('anfrage_stellen') }}">Anfrage stellen</a>.
+  </p>
+</section>
+{% endblock %}

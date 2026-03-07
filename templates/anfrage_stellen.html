@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Anfrage stellen | {{ business.name }}{% endblock %}
+{% block content %}
+<section class="content-narrow">
+  <h1>Anfrage stellen</h1>
+  <p>Schildern Sie kurz Ihr Vorhaben. Dieses Formular ist aktuell ein Entwurf ohne Versandfunktion.</p>
+
+  <form class="simple-form" action="#" method="post" novalidate>
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" placeholder="Ihr Name">
+
+    <label for="telefon">Telefon</label>
+    <input id="telefon" name="telefon" type="tel" placeholder="Ihre Telefonnummer">
+
+    <label for="adresse">Projektadresse</label>
+    <input id="adresse" name="adresse" type="text" placeholder="Straße, Ort">
+
+    <label for="anliegen">Anliegen</label>
+    <textarea id="anliegen" name="anliegen" rows="5" placeholder="Welche Arbeiten sind geplant?"></textarea>
+
+    <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
+  </form>
+</section>
+{% endblock %}
