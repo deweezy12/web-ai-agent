@@ -14,9 +14,9 @@ with open("prompt.txt", "r", encoding="utf-8") as f:
 search = DuckDuckGoSearchRun(name="web_search")
 tools = [search]
 
-# Initialize the model with tools bound.
+# Initialize the model with a fixed model ID requested by the user.
 llm = ChatAnthropic(
-    model="claude-3-5-haiku-latest",
+    model="claude-haiku-4-5-20251001",
     api_key=os.environ.get("ANTHROPIC_API_KEY")
 ).bind_tools(tools)
 
