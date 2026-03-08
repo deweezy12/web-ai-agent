@@ -14,9 +14,9 @@ with open("prompt.txt", "r", encoding="utf-8") as f:
 search = DuckDuckGoSearchRun(name="web_search")
 tools = [search]
 
-# Initialize the model with tools bound
+# Initialize the model with tools bound.
 llm = ChatAnthropic(
-    model="claude-3-5-haiku-20241022",
+    model="claude-3-5-haiku-latest",
     api_key=os.environ.get("ANTHROPIC_API_KEY")
 ).bind_tools(tools)
 
