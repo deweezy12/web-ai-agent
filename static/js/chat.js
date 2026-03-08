@@ -22,7 +22,20 @@
         body: JSON.stringify({ message, history }),
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      const raw = await response.text();
+      let data = {};
+
+      if (contentType.includes("application/json")) {
+        try {
+          data = JSON.parse(raw);
+        } catch (_error) {
+          throw new Error("Ungültige JSON-Antwort vom Server.");
+        }
+      } else {
+        throw new Error("Server lieferte kein JSON (Status " + response.status + ").");
+      }
+
       if (!response.ok) {
         throw new Error(data.error || "Unbekannter Fehler");
       }

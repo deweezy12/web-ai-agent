@@ -82,37 +82,52 @@ def datenschutz():
 
 @app.post("/api/chat")
 def api_chat():
-    data = request.get_json(silent=True) or {}
-    message = (data.get("message") or "").strip()
-    history = data.get("history") or []
+    try:
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            return jsonify({"error": "ANTHROPIC_API_KEY is not set"}), 500
 
-    if not message:
-        return jsonify({"error": "message is required"}), 400
+        data = request.get_json(silent=True) or {}
+        message = (data.get("message") or "").strip()
+        history = data.get("history") or []
 
-    messages = [SystemMessage(content=SYSTEM_PROMPT)]
+        if not message:
+            return jsonify({"error": "message is required"}), 400
 
-    for turn in history:
-        if isinstance(turn, list) and len(turn) == 2:
-            human, ai = turn
-            if human:
-                messages.append(HumanMessage(content=str(human)))
-            if ai:
-                messages.append(AIMessage(content=str(ai)))
+        messages = [SystemMessage(content=SYSTEM_PROMPT)]
 
-    messages.append(HumanMessage(content=message))
+        for turn in history:
+            if isinstance(turn, list) and len(turn) == 2:
+                human, ai = turn
+                if human:
+                    messages.append(HumanMessage(content=str(human)))
+                if ai:
+                    messages.append(AIMessage(content=str(ai)))
 
-    response = llm.invoke(messages)
+        messages.append(HumanMessage(content=message))
 
-    if response.tool_calls:
-        messages.append(response)
-        for tool_call in response.tool_calls:
-            args = tool_call.get("args", {})
-            query = args.get("query", "")
-            result = search.invoke(query)
-            messages.append(ToolMessage(content=result, tool_call_id=tool_call["id"]))
         response = llm.invoke(messages)
 
-    return jsonify({"reply": response.content})
+        if response.tool_calls:
+            messages.append(response)
+            for tool_call in response.tool_calls:
+                args = tool_call.get("args", {})
+                query = args.get("query", "")
+                result = search.invoke(query)
+                messages.append(ToolMessage(content=result, tool_call_id=tool_call["id"]))
+            response = llm.invoke(messages)
+
+        content = response.content
+        if isinstance(content, list):
+            reply = " ".join(
+                str(part.get("text", part)) if isinstance(part, dict) else str(part)
+                for part in content
+            ).strip()
+        else:
+            reply = str(content).strip()
+
+        return jsonify({"reply": reply or "Keine Antwort erhalten."})
+    except Exception as exc:
+        return jsonify({"error": f"Serverfehler: {exc}"}), 500
 
 
 if __name__ == "__main__":

@@ -1,10 +1,10 @@
 :root {
-  --bg: #f8fafc;
+  --bg: #e5e7eb;
   --surface: #ffffff;
   --text: #1f2937;
-  --muted: #6b7280;
-  --line: #d1d5db;
-  --blue: #1d4ed8;
+  --muted: #4b5563;
+  --line: #cbd5e1;
+  --blue: #1e40af;
   --blue-soft: #dbeafe;
 }
 
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text);
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #eef2f6 0%, var(--bg) 100%);
 }
 
 .container {
@@ -27,9 +27,9 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(30, 64, 175, 0.97);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 10;
 }
 
@@ -46,19 +46,21 @@ body {
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  color: var(--text);
+  color: #ffffff;
   font-weight: 700;
 }
 
-.brand-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.5rem;
-  background: var(--blue-soft);
-  color: var(--blue);
-  font-size: 0.85rem;
+.brand-logo {
+  width: 2.2rem;
+  height: 2.2rem;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.15rem;
+}
+
+.brand-text {
+  color: #ffffff;
 }
 
 .top-nav {
@@ -69,15 +71,15 @@ body {
 
 .top-nav a {
   text-decoration: none;
-  color: var(--muted);
+  color: #dbeafe;
   padding: 0.45rem 0.75rem;
   border-radius: 0.45rem;
 }
 
 .top-nav a.active,
 .top-nav a:hover {
-  color: var(--blue);
-  background: var(--blue-soft);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .page-content {
@@ -239,7 +241,7 @@ body {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: #e2e8f0;
 }
 
 .footer-row {
