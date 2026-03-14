@@ -1,19 +1,44 @@
 {% extends "base.html" %}
 {% block title %}Über uns | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow">
-  <h1>Über uns</h1>
-  <p>
-    {{ business.name }} steht für handwerkliche Fliesenarbeiten in Wuppertal.
-    Wir begleiten Projekte vom ersten Aufmaß bis zur finalen Verfugung.
-  </p>
-  <p>
-    Unser Fokus liegt auf klarer Beratung, realistischer Planung und langlebigen Lösungen
-    für Bad, Küche, Wohnbereich und gewerbliche Flächen.
-  </p>
-  <p>
-    Für eine erste Einschätzung nutzen Sie die Seite <a href="{{ url_for('anfrage_stellen') }}">Anfrage stellen</a>
-    oder kontaktieren Sie uns direkt.
-  </p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Über uns</p>
+    <h1>Fliesenarbeiten mit ruhiger Handschrift und klarer Abstimmung.</h1>
+    <p>
+      {{ business.name }} steht für präzise Ausführung in Wuppertal. Begleitet werden
+      Projekte vom ersten Aufmaß bis zur finalen Verfugung mit dem Anspruch, technische
+      Sauberkeit und stimmige Gestaltung zusammenzubringen.
+    </p>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container two-column-copy">
+    <article class="content-panel reveal">
+      <h2>Was wichtig ist</h2>
+      <p>
+        Gute Fliesenarbeiten entstehen nicht zufällig. Entscheidend sind ein sauber
+        vorbereiteter Untergrund, die passende Materialwahl und eine Ausführung, die
+        in Details wie Übergängen, Fugenbild und Proportionen überzeugt.
+      </p>
+      <p>
+        Ob Bad, Küche oder Wohnbereich: Ziel ist ein Ergebnis, das im Raum ruhig wirkt
+        und im Alltag dauerhaft funktioniert.
+      </p>
+    </article>
+    <article class="content-panel reveal">
+      <h2>Wie wir arbeiten</h2>
+      <p>
+        Projekte werden klar eingeschätzt, realistisch geplant und sauber umgesetzt.
+        Vorab helfen Fotos, ungefähre Quadratmeter und eine kurze Beschreibung des
+        Vorhabens, damit schnell eine erste Einordnung möglich ist.
+      </p>
+      <p>
+        Für den nächsten Schritt nutzen Sie am besten die Anfrage-Seite oder nehmen
+        direkt telefonisch Kontakt auf.
+      </p>
+    </article>
+  </div>
 </section>
 {% endblock %}

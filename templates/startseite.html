@@ -1,40 +1,131 @@
 {% extends "base.html" %}
 {% block title %}Startseite | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">Fliesenfachbetrieb in Wuppertal</p>
-    <h1>Saubere Fliesenarbeiten mit klarem Ergebnis</h1>
-    <p>
-      {{ business.owner }} und Team unterstützen Sie bei Neuverlegung, Sanierung und Reparatur.
-      Klar geplant, ordentlich ausgeführt.
-    </p>
-    <div class="hero-actions">
-      <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Jetzt Anfrage stellen</a>
-      <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt</a>
+<section class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <p class="section-kicker">Fliesenarbeiten in Wuppertal</p>
+      <h1>Ruhige Räume beginnen mit sauberer handwerklicher Ausführung.</h1>
+      <p class="hero-lead">
+        {{ business.owner }} begleitet Fliesenprojekte mit klarer Beratung, präzisem Aufmaß
+        und einer Ausführung, die in Bad, Küche und Wohnbereich dauerhaft überzeugt.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Projekt anfragen</a>
+        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Direkt Kontakt aufnehmen</a>
+      </div>
+      <ul class="hero-points">
+        <li>Saubere Verlegung und klare Details</li>
+        <li>Badsanierung, Boden, Wand, Naturstein</li>
+        <li>Wuppertal und Umgebung</li>
+      </ul>
     </div>
-  </div>
-  <div class="hero-media" aria-hidden="true">
-    <div class="placeholder-tile"></div>
+    <div class="hero-visual reveal">
+      <div class="hero-panel">
+        <div class="stone-swatch stone-swatch-large"></div>
+        <div class="hero-card">
+          <p class="section-kicker">Material und Wirkung</p>
+          <h2>Feinsteinzeug, Naturstein und Mosaik mit ruhigem Gesamtbild.</h2>
+          <p>
+            Für Flächen, die nicht nur neu aussehen sollen, sondern im Alltag stimmig
+            funktionieren und langfristig belastbar bleiben.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="card-grid">
-  <article class="card">
-    <h2>Leistungen</h2>
-    <ul>
+<section class="section-block">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Leistungen</p>
+      <h2>Ausführung mit Substanz statt Standardlösungen.</h2>
+      <p>
+        Von der Neuverlegung bis zur Sanierung werden Untergrund, Material und Nutzung
+        gemeinsam betrachtet, damit das Ergebnis optisch und technisch passt.
+      </p>
+    </div>
+    <div class="service-grid">
       {% for service in services %}
-      <li>{{ service }}</li>
+      <article class="service-card reveal">
+        <p class="service-index">0{{ loop.index }}</p>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </article>
       {% endfor %}
-    </ul>
-  </article>
-  <article class="card">
-    <h2>Warum wir</h2>
-    <p>Zuverlässige Absprachen, präzise Ausführung und ein sauberer Abschluss jeder Baustelle.</p>
-  </article>
-  <article class="card">
-    <h2>Region</h2>
-    <p>Wuppertal und Umgebung. Kurze Wege, schnelle Rückmeldung.</p>
-  </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block section-soft">
+  <div class="container trust-grid">
+    <div class="section-heading narrow">
+      <p class="section-kicker">Warum wir</p>
+      <h2>Klare Abstimmung, präzise Flächen, sauberer Abschluss.</h2>
+      <p>
+        Gute Fliesenarbeiten entstehen nicht nur durch das sichtbare Ergebnis, sondern
+        durch eine saubere Vorbereitung, realistische Planung und verlässliche Ausführung.
+      </p>
+    </div>
+    <div class="trust-cards">
+      <article class="detail-card reveal">
+        <h3>Verständliche Beratung</h3>
+        <p>Material, Aufbau, Abdichtung und Aufwand werden vorab nachvollziehbar eingeordnet.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Ordentliche Baustelle</h3>
+        <p>Saubere Abläufe, klare Absprachen und ein ruhiger Baustellenprozess stehen im Vordergrund.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Langlebige Lösungen</h3>
+        <p>Der Fokus liegt auf Flächen, die im Alltag dauerhaft belastbar und stimmig bleiben.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container process-grid">
+    <div class="process-intro">
+      <p class="section-kicker">Ablauf</p>
+      <h2>Vom ersten Eindruck bis zur fertigen Fläche in vier klaren Schritten.</h2>
+    </div>
+    <div class="process-steps">
+      <article class="process-step reveal">
+        <span>01</span>
+        <h3>Projekt einschätzen</h3>
+        <p>Fläche, Einsatzort, Materialwunsch und Zustand des Untergrunds werden gemeinsam geklärt.</p>
+      </article>
+      <article class="process-step reveal">
+        <span>02</span>
+        <h3>Aufmaß und Vorbereitung</h3>
+        <p>Vor Ort wird geprüft, welche Vorarbeiten, Abdichtungen und Details sinnvoll sind.</p>
+      </article>
+      <article class="process-step reveal">
+        <span>03</span>
+        <h3>Verlegung und Ausführung</h3>
+        <p>Die Flächen werden mit Fokus auf Ausrichtung, Übergänge und ein sauberes Gesamtbild umgesetzt.</p>
+      </article>
+      <article class="process-step reveal">
+        <span>04</span>
+        <h3>Fertiger Abschluss</h3>
+        <p>Am Ende zählt ein Ergebnis, das technisch sauber aufgebaut ist und optisch Ruhe ausstrahlt.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container cta-band reveal">
+    <div>
+      <p class="section-kicker">Nächster Schritt</p>
+      <h2>Schicken Sie eine kurze Projektbeschreibung und erhalten Sie eine realistische erste Einschätzung.</h2>
+    </div>
+    <div class="cta-actions">
+      <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Anfrage starten</a>
+      <a href="tel:+49202478880" class="btn btn-secondary">{{ business.phone }}</a>
+    </div>
+  </div>
 </section>
 {% endblock %}

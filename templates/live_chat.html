@@ -1,16 +1,40 @@
 {% extends "base.html" %}
-{% block title %}Live Chat | {{ business.name }}{% endblock %}
+{% block title %}Live-Chat | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow">
-  <h1>Live Chat</h1>
-  <p>Stellen Sie Ihre Frage direkt im Chat. Antworten können durch Websuche ergänzt werden.</p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Live-Chat</p>
+    <h1>Schnelle Orientierung zu Fliesen, Sanierung und Projektfragen.</h1>
+    <p>
+      Der Chat hilft bei ersten Fragen zu Materialien, Untergrund, Badplanung oder
+      Reparaturen. Für ein konkretes Angebot bleibt die direkte Kontaktaufnahme der
+      richtige nächste Schritt.
+    </p>
+  </div>
+</section>
 
-  <div class="chat-shell" id="chat-shell">
-    <div class="chat-log" id="chat-log" aria-live="polite"></div>
-    <form class="chat-form" id="chat-form">
-      <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
-      <button type="submit" class="btn btn-primary" id="chat-send">Senden</button>
-    </form>
+<section class="section-block">
+  <div class="container chat-layout">
+    <article class="content-panel reveal">
+      <p class="section-kicker">Wofür der Chat gut ist</p>
+      <h2>Erste fachliche Einordnung vor dem persönlichen Kontakt.</h2>
+      <ul class="check-list">
+        <li>Materialwahl für Bad, Küche, Boden und Wand</li>
+        <li>Einschätzung zu Untergrund und Abdichtung</li>
+        <li>Pflege, Reparaturen und grober Projektablauf</li>
+      </ul>
+      <p class="note-box">
+        Für ein konkretes Angebot sind Fotos, Maße und der gewünschte Zeitrahmen am hilfreichsten.
+      </p>
+    </article>
+
+    <article class="chat-shell reveal" id="chat-shell">
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <form class="chat-form" id="chat-form">
+        <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
+        <button type="submit" class="btn btn-primary" id="chat-send">Senden</button>
+      </form>
+    </article>
   </div>
 </section>
 {% endblock %}

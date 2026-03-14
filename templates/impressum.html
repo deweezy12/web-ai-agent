@@ -1,18 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Impressum | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow legal">
-  <h1>Impressum</h1>
-  <p><strong>Angaben gemäß § 5 TMG</strong></p>
-  <p>
-    {{ business.name }}<br>
-    {{ business.address_line_1 }}<br>
-    {{ business.address_line_2 }}
-  </p>
-  <p>
-    Vertreten durch: {{ business.owner }}<br>
-    Telefon: {{ business.phone }}
-  </p>
-  <p>Weitere rechtliche Angaben können bei Bedarf ergänzt werden.</p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Impressum</p>
+    <h1>Rechtliche Angaben</h1>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container legal-wrapper">
+    <article class="content-panel legal reveal">
+      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <p>
+        {{ business.name }}<br>
+        {{ business.address_line_1 }}<br>
+        {{ business.address_line_2 }}
+      </p>
+      <p>
+        Vertreten durch: {{ business.owner }}<br>
+        Telefon: {{ business.phone }}
+      </p>
+      <p>Weitere rechtliche Angaben können bei Bedarf ergänzt werden.</p>
+    </article>
+  </div>
 </section>
 {% endblock %}

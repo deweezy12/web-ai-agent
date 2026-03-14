@@ -51,7 +51,7 @@
     }
   }
 
-  append("Willkommen im Live-Chat. Wie kann ich helfen?", "bot");
+  append("Willkommen im Live-Chat. Wobei kann ich Sie zu Fliesenarbeiten unterstützen?", "bot");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();

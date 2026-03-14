@@ -1,24 +1,52 @@
 {% extends "base.html" %}
 {% block title %}Anfrage stellen | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow">
-  <h1>Anfrage stellen</h1>
-  <p>Schildern Sie kurz Ihr Vorhaben. Dieses Formular ist aktuell ein Entwurf ohne Versandfunktion.</p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Projektanfrage</p>
+    <h1>Je klarer die Angaben, desto schneller die erste Einschätzung.</h1>
+    <p>
+      Beschreiben Sie Ihr Vorhaben kurz mit Einsatzort, Fläche, Materialwunsch und
+      gewünschtem Zeitrahmen. Das Formular ist aktuell noch ohne Versandfunktion,
+      dient aber bereits als Vorlage für die wichtigsten Informationen.
+    </p>
+  </div>
+</section>
 
-  <form class="simple-form" action="#" method="post" novalidate>
-    <label for="name">Name</label>
-    <input id="name" name="name" type="text" placeholder="Ihr Name">
+<section class="section-block">
+  <div class="container inquiry-grid">
+    <article class="content-panel reveal">
+      <p class="section-kicker">Hilfreiche Angaben</p>
+      <h2>Diese Informationen beschleunigen die Rückmeldung.</h2>
+      <ul class="check-list">
+        <li>Ort des Projekts und ungefähre Quadratmeter</li>
+        <li>Bad, Küche, Boden, Wand oder Außenbereich</li>
+        <li>Zustand des Untergrunds und gewünschtes Material</li>
+        <li>Fotos und geplanter Zeitrahmen</li>
+      </ul>
+      <p class="note-box">
+        Bis die Versandfunktion aktiv ist, können Sie die gleichen Angaben auch direkt
+        telefonisch durchgeben.
+      </p>
+    </article>
 
-    <label for="telefon">Telefon</label>
-    <input id="telefon" name="telefon" type="tel" placeholder="Ihre Telefonnummer">
+    <article class="content-panel reveal">
+      <form class="simple-form" action="#" method="post" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Ihr Name">
 
-    <label for="adresse">Projektadresse</label>
-    <input id="adresse" name="adresse" type="text" placeholder="Straße, Ort">
+        <label for="telefon">Telefon</label>
+        <input id="telefon" name="telefon" type="tel" placeholder="Ihre Telefonnummer">
 
-    <label for="anliegen">Anliegen</label>
-    <textarea id="anliegen" name="anliegen" rows="5" placeholder="Welche Arbeiten sind geplant?"></textarea>
+        <label for="adresse">Projektadresse</label>
+        <input id="adresse" name="adresse" type="text" placeholder="Straße, Ort">
 
-    <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
-  </form>
+        <label for="anliegen">Projektbeschreibung</label>
+        <textarea id="anliegen" name="anliegen" rows="6" placeholder="Welche Arbeiten sind geplant?"></textarea>
+
+        <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
+      </form>
+    </article>
+  </div>
 </section>
 {% endblock %}

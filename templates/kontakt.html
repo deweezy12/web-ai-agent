@@ -1,16 +1,38 @@
 {% extends "base.html" %}
 {% block title %}Kontakt | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow">
-  <h1>Kontakt</h1>
-  <div class="contact-card">
-    <p><strong>{{ business.name }}</strong></p>
-    <p>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</p>
-    <p>Telefon: <a href="tel:+49202478880">{{ business.phone }}</a></p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Kontakt</p>
+    <h1>Direkter Kontakt für Fliesenarbeiten, Sanierung und erste Projekteinschätzung.</h1>
+    <p>
+      Wenn Sie bereits Eckdaten zu Fläche, Material oder Zeitrahmen haben, lässt sich
+      Ihr Vorhaben schneller einordnen.
+    </p>
   </div>
-  <p>
-    Für eine schnelle Bearbeitung senden Sie bitte Eckdaten über
-    <a href="{{ url_for('anfrage_stellen') }}">Anfrage stellen</a>.
-  </p>
+</section>
+
+<section class="section-block">
+  <div class="container contact-grid">
+    <article class="contact-card reveal">
+      <p class="section-kicker">Adresse</p>
+      <h2>{{ business.name }}</h2>
+      <p>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</p>
+      <p>Telefon: <a href="tel:+49202478880">{{ business.phone }}</a></p>
+    </article>
+    <article class="content-panel reveal">
+      <p class="section-kicker">Empfohlen</p>
+      <h2>Für eine schnelle Rückmeldung</h2>
+      <p>
+        Senden Sie eine kurze Projektbeschreibung mit Fotos, ungefähren Quadratmetern
+        und dem gewünschten Zeitrahmen über die Anfrage-Seite oder besprechen Sie die
+        Eckdaten direkt telefonisch.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Zur Anfrage</a>
+        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Frage im Live-Chat</a>
+      </div>
+    </article>
+  </div>
 </section>
 {% endblock %}

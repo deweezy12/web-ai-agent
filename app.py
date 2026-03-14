@@ -3,8 +3,11 @@ from flask import Flask, render_template, request, jsonify
 from langchain_anthropic import ChatAnthropic
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, ToolMessage
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+load_dotenv()
 
 # Load system prompt from file
 with open("prompt.txt", "r", encoding="utf-8") as f:
@@ -30,11 +33,26 @@ BUSINESS = {
 }
 
 SERVICES = [
-    "Fliesenverlegung",
-    "Badsanierung",
-    "Naturstein- und Mosaikarbeiten",
-    "Reparatur- und Ausbesserungsarbeiten",
-    "Beratung und Aufmaß",
+    {
+        "title": "Fliesenverlegung",
+        "description": "Präzise Verlegung für Boden- und Wandflächen mit sauberem Fugenbild und klarer Ausrichtung.",
+    },
+    {
+        "title": "Badsanierung",
+        "description": "Begleitung vom ersten Aufmaß bis zur fertigen Oberfläche für moderne, belastbare Badbereiche.",
+    },
+    {
+        "title": "Naturstein und Mosaik",
+        "description": "Sorgfältige Verarbeitung hochwertiger Materialien für detailreiche Flächen und besondere Akzente.",
+    },
+    {
+        "title": "Reparaturarbeiten",
+        "description": "Ausbesserungen, Teilflächen und Instandsetzungen bei Schäden, Hohllagen oder gealterten Belägen.",
+    },
+    {
+        "title": "Beratung und Aufmaß",
+        "description": "Klare Einschätzung zu Material, Untergrund, Abdichtung und sinnvoller Umsetzung vor Ort.",
+    },
 ]
 
 

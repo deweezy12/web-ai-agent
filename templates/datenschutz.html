@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Datenschutz | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="content-narrow legal">
-  <h1>Datenschutz</h1>
-  <p>
-    Diese Website verarbeitet nur technisch notwendige Daten zur Bereitstellung der Seite.
-    Bei Nutzung des Live-Chats werden Ihre Eingaben zur Beantwortung an den verwendeten KI-Dienst übermittelt.
-  </p>
-  <p>
-    Für eine vollständige Datenschutzerklärung sollten Verantwortlicher, Rechtsgrundlagen,
-    Speicherdauer und Betroffenenrechte individuell ergänzt werden.
-  </p>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="section-kicker">Datenschutz</p>
+    <h1>Hinweise zur Datenverarbeitung</h1>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container legal-wrapper">
+    <article class="content-panel legal reveal">
+      <p>
+        Diese Website verarbeitet nur technisch notwendige Daten zur Bereitstellung der Seite.
+        Bei Nutzung des Live-Chats werden Ihre Eingaben zur Beantwortung an den verwendeten
+        KI-Dienst übermittelt.
+      </p>
+      <p>
+        Für eine vollständige Datenschutzerklärung sollten Verantwortlicher, Rechtsgrundlagen,
+        Speicherdauer und Betroffenenrechte individuell ergänzt werden.
+      </p>
+    </article>
+  </div>
 </section>
 {% endblock %}
