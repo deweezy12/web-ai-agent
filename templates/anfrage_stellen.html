@@ -1,36 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Anfrage stellen | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="page-hero">
-  <div class="container page-hero-inner">
-    <p class="section-kicker">Projektanfrage</p>
-    <h1>Je klarer die Angaben, desto schneller die erste Einschätzung.</h1>
-    <p>
-      Beschreiben Sie Ihr Vorhaben kurz mit Einsatzort, Fläche, Materialwunsch und
-      gewünschtem Zeitrahmen. Das Formular ist aktuell noch ohne Versandfunktion,
-      dient aber bereits als Vorlage für die wichtigsten Informationen.
-    </p>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="container inquiry-grid">
-    <article class="content-panel reveal">
-      <p class="section-kicker">Hilfreiche Angaben</p>
-      <h2>Diese Informationen beschleunigen die Rückmeldung.</h2>
-      <ul class="check-list">
-        <li>Ort des Projekts und ungefähre Quadratmeter</li>
-        <li>Bad, Küche, Boden, Wand oder Außenbereich</li>
-        <li>Zustand des Untergrunds und gewünschtes Material</li>
-        <li>Fotos und geplanter Zeitrahmen</li>
-      </ul>
-      <p class="note-box">
-        Bis die Versandfunktion aktiv ist, können Sie die gleichen Angaben auch direkt
-        telefonisch durchgeben.
-      </p>
-    </article>
-
-    <article class="content-panel reveal">
+<section class="section-block subpage-start">
+  <div class="container">
+    <article class="content-panel reveal form-panel-direct">
       <form class="simple-form" action="#" method="post" novalidate>
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Ihr Name">

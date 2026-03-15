@@ -1,43 +1,45 @@
 {% extends "base.html" %}
 {% block title %}Über uns | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="page-hero">
-  <div class="container page-hero-inner">
-    <p class="section-kicker">Über uns</p>
-    <h1>Fliesenarbeiten mit ruhiger Handschrift und klarer Abstimmung.</h1>
-    <p>
-      {{ business.name }} steht für präzise Ausführung in Wuppertal. Begleitet werden
-      Projekte vom ersten Aufmaß bis zur finalen Verfugung mit dem Anspruch, technische
-      Sauberkeit und stimmige Gestaltung zusammenzubringen.
-    </p>
-  </div>
-</section>
-
-<section class="section-block">
+<section class="section-block subpage-start">
   <div class="container two-column-copy">
     <article class="content-panel reveal">
-      <h2>Was wichtig ist</h2>
+      <p class="section-kicker">Über uns</p>
+      <h1 class="subpage-title">Präzise Fliesenarbeiten mit klarem Qualitätsanspruch.</h1>
       <p>
-        Gute Fliesenarbeiten entstehen nicht zufällig. Entscheidend sind ein sauber
-        vorbereiteter Untergrund, die passende Materialwahl und eine Ausführung, die
-        in Details wie Übergängen, Fugenbild und Proportionen überzeugt.
+        {{ business.name }} steht für saubere handwerkliche Ausführung in Wuppertal.
+        Der Anspruch ist nicht einfach nur eine ordentlich verlegte Fläche, sondern ein
+        Ergebnis, das technisch stimmt, hochwertig wirkt und im Alltag dauerhaft Bestand hat.
       </p>
       <p>
-        Ob Bad, Küche oder Wohnbereich: Ziel ist ein Ergebnis, das im Raum ruhig wirkt
-        und im Alltag dauerhaft funktioniert.
+        Begleitet werden Projekte vom ersten Aufmaß bis zur fertigen Oberfläche mit Fokus
+        auf klare Beratung, nachvollziehbare Planung und eine ruhige, präzise Umsetzung.
+        Gerade bei Bad, Küche oder Wohnbereich entscheidet oft nicht nur das Material,
+        sondern wie sauber Übergänge, Fugenbild und Proportionen gelöst werden.
+      </p>
+      <p>
+        Kunden schätzen an uns die Mischung aus Verlässlichkeit, sauberer Arbeitsweise
+        und einem Blick für die gestalterische Wirkung. Ziel ist immer eine Fläche, die
+        nicht beliebig wirkt, sondern zum Raum passt und langfristig überzeugt.
       </p>
     </article>
     <article class="content-panel reveal">
-      <h2>Wie wir arbeiten</h2>
+      <p class="section-kicker">Unsere Arbeitsweise</p>
+      <h2 class="panel-title">Klar abgestimmt, sorgfältig vorbereitet, sauber umgesetzt.</h2>
       <p>
-        Projekte werden klar eingeschätzt, realistisch geplant und sauber umgesetzt.
+        Gute Fliesenarbeiten entstehen nicht zufällig. Entscheidend sind ein passender
+        Untergrund, die richtige Materialwahl und eine Ausführung, die auch in Details
+        wie Anschlüssen, Schnitten und Linienführung überzeugt.
+      </p>
+      <p>
         Vorab helfen Fotos, ungefähre Quadratmeter und eine kurze Beschreibung des
-        Vorhabens, damit schnell eine erste Einordnung möglich ist.
+        Vorhabens, damit schnell eine erste Einordnung möglich ist. Für den nächsten
+        Schritt nutzen Sie am besten die Anfrage-Seite oder nehmen direkt Kontakt auf.
       </p>
-      <p>
-        Für den nächsten Schritt nutzen Sie am besten die Anfrage-Seite oder nehmen
-        direkt telefonisch Kontakt auf.
-      </p>
+      <div class="hero-actions compact-actions">
+        <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Anfrage stellen</a>
+        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt aufnehmen</a>
+      </div>
     </article>
   </div>
 </section>

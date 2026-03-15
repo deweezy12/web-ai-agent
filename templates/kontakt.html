@@ -1,36 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Kontakt | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="page-hero">
-  <div class="container page-hero-inner">
-    <p class="section-kicker">Kontakt</p>
-    <h1>Direkter Kontakt für Fliesenarbeiten, Sanierung und erste Projekteinschätzung.</h1>
-    <p>
-      Wenn Sie bereits Eckdaten zu Fläche, Material oder Zeitrahmen haben, lässt sich
-      Ihr Vorhaben schneller einordnen.
-    </p>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="container contact-grid">
-    <article class="contact-card reveal">
-      <p class="section-kicker">Adresse</p>
-      <h2>{{ business.name }}</h2>
+<section class="section-block subpage-start">
+  <div class="container">
+    <article class="contact-card reveal direct-contact-card">
+      <p class="section-kicker">Kontakt</p>
+      <h1 class="subpage-title">{{ business.name }}</h1>
       <p>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</p>
       <p>Telefon: <a href="tel:+49202478880">{{ business.phone }}</a></p>
-    </article>
-    <article class="content-panel reveal">
-      <p class="section-kicker">Empfohlen</p>
-      <h2>Für eine schnelle Rückmeldung</h2>
-      <p>
-        Senden Sie eine kurze Projektbeschreibung mit Fotos, ungefähren Quadratmetern
-        und dem gewünschten Zeitrahmen über die Anfrage-Seite oder besprechen Sie die
-        Eckdaten direkt telefonisch.
-      </p>
-      <div class="hero-actions">
+      <div class="hero-actions compact-actions">
         <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Zur Anfrage</a>
-        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Frage im Live-Chat</a>
+        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Live-Chat</a>
       </div>
     </article>
   </div>

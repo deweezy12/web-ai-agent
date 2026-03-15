@@ -1,34 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Live-Chat | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="page-hero">
-  <div class="container page-hero-inner">
-    <p class="section-kicker">Live-Chat</p>
-    <h1>Schnelle Orientierung zu Fliesen, Sanierung und Projektfragen.</h1>
-    <p>
-      Der Chat hilft bei ersten Fragen zu Materialien, Untergrund, Badplanung oder
-      Reparaturen. Für ein konkretes Angebot bleibt die direkte Kontaktaufnahme der
-      richtige nächste Schritt.
-    </p>
-  </div>
-</section>
-
-<section class="section-block">
-  <div class="container chat-layout">
-    <article class="content-panel reveal">
-      <p class="section-kicker">Wofür der Chat gut ist</p>
-      <h2>Erste fachliche Einordnung vor dem persönlichen Kontakt.</h2>
-      <ul class="check-list">
-        <li>Materialwahl für Bad, Küche, Boden und Wand</li>
-        <li>Einschätzung zu Untergrund und Abdichtung</li>
-        <li>Pflege, Reparaturen und grober Projektablauf</li>
-      </ul>
-      <p class="note-box">
-        Für ein konkretes Angebot sind Fotos, Maße und der gewünschte Zeitrahmen am hilfreichsten.
-      </p>
-    </article>
-
-    <article class="chat-shell reveal" id="chat-shell">
+<section class="section-block subpage-start">
+  <div class="container">
+    <article class="chat-shell reveal chat-shell-direct" id="chat-shell">
+      <div class="chat-shell-head">
+        <p class="section-kicker">Live-Chat</p>
+        <h1 class="subpage-title">Direkt Ihre Frage stellen</h1>
+      </div>
       <div class="chat-log" id="chat-log" aria-live="polite"></div>
       <form class="chat-form" id="chat-form">
         <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
