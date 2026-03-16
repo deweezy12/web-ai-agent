@@ -24,7 +24,7 @@
           <a href="tel:+49202478880">+49 202 478880</a>
         </div>
         <div class="container header-row">
-          <a href="{{ url_for('startseite') }}" class="brand" aria-label="{{ business.name }}">
+          <a href="{{ url_for('startseite') }}#start" class="brand" aria-label="{{ business.name }}">
             <img
               src="{{ url_for('static', filename='images/logo_fliesen.png') }}"
               alt="Logo {{ business.name }}"
@@ -36,13 +36,13 @@
             </span>
           </a>
           <nav class="top-nav" aria-label="Hauptnavigation">
-            <a href="{{ url_for('startseite') }}" class="{% if request.path == '/' %}active{% endif %}">Startseite</a>
-            <a href="{{ url_for('ueber_uns') }}" class="{% if request.path == '/ueber-uns' %}active{% endif %}">Über uns</a>
-            <a href="{{ url_for('anfrage_stellen') }}" class="{% if request.path == '/anfrage-stellen' %}active{% endif %}">Anfrage</a>
-            <a href="{{ url_for('kontakt') }}" class="{% if request.path == '/kontakt' %}active{% endif %}">Kontakt</a>
-            <a href="{{ url_for('live_chat') }}" class="{% if request.path == '/live-chat' %}active{% endif %}">Live-Chat</a>
+            <a href="{{ url_for('startseite') }}#start" class="{% if request.path == '/' %}active{% endif %}">Startseite</a>
+            <a href="{{ url_for('startseite') }}#ueber-uns">Über uns</a>
+            <a href="{{ url_for('startseite') }}#anfrage">Anfrage</a>
+            <a href="{{ url_for('startseite') }}#live-chat">Live-Chat</a>
+            <a href="{{ url_for('startseite') }}#kontakt">Kontakt</a>
           </nav>
-          <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary header-cta">Kostenlose Beratung</a>
+          <a href="{{ url_for('startseite') }}#anfrage" class="btn btn-primary header-cta">Kostenlose Beratung</a>
         </div>
       </header>
 
@@ -68,10 +68,10 @@
           <div>
             <h3>Seiten</h3>
             <div class="footer-links">
-              <a href="{{ url_for('ueber_uns') }}">Über uns</a>
-              <a href="{{ url_for('anfrage_stellen') }}">Anfrage stellen</a>
-              <a href="{{ url_for('kontakt') }}">Kontakt</a>
-              <a href="{{ url_for('live_chat') }}">Live-Chat</a>
+              <a href="{{ url_for('startseite') }}#ueber-uns">Über uns</a>
+              <a href="{{ url_for('startseite') }}#anfrage">Anfrage stellen</a>
+              <a href="{{ url_for('startseite') }}#live-chat">Live-Chat</a>
+              <a href="{{ url_for('startseite') }}#kontakt">Kontakt</a>
               <a href="{{ url_for('impressum') }}">Impressum</a>
               <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
             </div>

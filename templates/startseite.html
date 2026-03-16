@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Startseite | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="hero-section">
+<section class="hero-section" id="start">
   <div class="container hero-grid">
     <div class="hero-copy reveal">
       <p class="section-kicker">Fliesenarbeiten in Wuppertal</p>
@@ -11,8 +11,8 @@
         und einer Ausführung, die in Bad, Küche und Wohnbereich dauerhaft überzeugt.
       </p>
       <div class="hero-actions">
-        <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Projekt anfragen</a>
-        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Direkt Kontakt aufnehmen</a>
+        <a href="#anfrage" class="btn btn-primary">Projekt anfragen</a>
+        <a href="#live-chat" class="btn btn-secondary">Direkt Kontakt aufnehmen</a>
       </div>
       <ul class="hero-points">
         <li>Saubere Verlegung und klare Details</li>
@@ -36,7 +36,7 @@
   </div>
 </section>
 
-<section class="section-block section-light">
+<section class="section-block section-light" id="leistungen">
   <div class="container">
     <div class="section-heading">
       <p class="section-kicker">Leistungen</p>
@@ -116,6 +116,141 @@
   </div>
 </section>
 
+<section class="section-block section-light subpage-strip" id="ueber-uns">
+  <div class="container two-column-copy">
+    <article class="content-panel reveal">
+      <p class="section-kicker">Über uns</p>
+      <h2 class="subpage-title">Präzise Fliesenarbeiten mit klarem Qualitätsanspruch.</h2>
+      <p>
+        {{ business.name }} steht für saubere handwerkliche Ausführung in Wuppertal.
+        Der Anspruch ist nicht einfach nur eine ordentlich verlegte Fläche, sondern ein
+        Ergebnis, das technisch stimmt, hochwertig wirkt und im Alltag dauerhaft Bestand hat.
+      </p>
+      <p>
+        Kunden schätzen die Mischung aus Verlässlichkeit, sauberer Arbeitsweise
+        und einem Blick für die gestalterische Wirkung.
+      </p>
+    </article>
+    <article class="content-panel reveal">
+      <p class="section-kicker">Unsere Arbeitsweise</p>
+      <h3 class="panel-title">Klar abgestimmt, sorgfältig vorbereitet, sauber umgesetzt.</h3>
+      <div class="mini-tile-grid">
+        <div class="mini-tile">
+          <strong>Präzise Ausführung</strong>
+          <span>Saubere Linien, ruhige Flächen und durchdachte Details.</span>
+        </div>
+        <div class="mini-tile">
+          <strong>Verlässliche Abstimmung</strong>
+          <span>Klare Kommunikation vor Beginn und während der Umsetzung.</span>
+        </div>
+      </div>
+      <div class="hero-actions compact-actions">
+        <a href="{{ url_for('ueber_uns') }}" class="btn btn-secondary">Eigene Seite öffnen</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section-block section-light subpage-strip" id="anfrage">
+  <div class="container inquiry-grid inquiry-grid-direct">
+    <article class="content-panel reveal form-panel-direct">
+      <p class="section-kicker">Anfrage</p>
+      <h2 class="subpage-title">Schnell die wichtigsten Projektdaten senden.</h2>
+      <p class="subpage-intro">
+        Je klarer die Eckdaten, desto leichter ist eine erste Einschätzung zu Material, Aufwand und Ablauf.
+      </p>
+      <form class="simple-form" action="#" method="post" novalidate>
+        <label for="home-name">Name</label>
+        <input id="home-name" name="name" type="text" placeholder="Ihr Name">
+
+        <label for="home-telefon">Telefon</label>
+        <input id="home-telefon" name="telefon" type="tel" placeholder="Ihre Telefonnummer">
+
+        <label for="home-adresse">Projektadresse</label>
+        <input id="home-adresse" name="adresse" type="text" placeholder="Straße, Ort">
+
+        <label for="home-anliegen">Projektbeschreibung</label>
+        <textarea id="home-anliegen" name="anliegen" rows="6" placeholder="Welche Arbeiten sind geplant?"></textarea>
+
+        <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
+      </form>
+    </article>
+    <aside class="content-panel reveal inquiry-side-tile">
+      <p class="section-kicker">Hilfreich</p>
+      <h3 class="panel-title">Diese Infos helfen für die erste Einordnung.</h3>
+      <ul class="check-list tile-list-dark">
+        <li>Ort, ungefähre Fläche und Einsatzbereich</li>
+        <li>Bad, Boden, Wohnbereich oder Sanierung</li>
+        <li>Materialidee und grober Zeitrahmen</li>
+      </ul>
+      <p class="tile-note">
+        Falls es schneller gehen soll, ist der direkte Kontakt oder der Live-Chat meist der beste erste Schritt.
+      </p>
+      <div class="hero-actions compact-actions">
+        <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-secondary">Eigene Seite öffnen</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section-block section-light subpage-strip" id="live-chat">
+  <div class="container">
+    <article class="chat-shell reveal chat-shell-direct" id="chat-shell">
+      <div class="chat-shell-head">
+        <p class="section-kicker">Live-Chat</p>
+        <h2 class="subpage-title">Direkt Ihre Frage stellen</h2>
+      </div>
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <form class="chat-form" id="chat-form">
+        <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
+        <button type="submit" class="btn btn-primary" id="chat-send">Senden</button>
+      </form>
+    </article>
+  </div>
+</section>
+
+<section class="section-block section-light subpage-strip" id="kontakt">
+  <div class="container contact-preview-grid contact-preview-grid-map">
+    <article class="content-panel reveal contact-preview-main">
+      <p class="section-kicker">Kontakt</p>
+      <h2 class="subpage-title">Direkt erreichbar, klar erreichbar, schnell abgestimmt.</h2>
+      <p>
+        Für eine erste Einschätzung reichen oft wenige Angaben. Telefonisch oder per Anfrage
+        lässt sich der nächste sinnvolle Schritt schnell klären.
+      </p>
+      <div class="contact-detail-list">
+        <div class="contact-detail-row">
+          <span>Adresse</span>
+          <strong>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</strong>
+        </div>
+        <div class="contact-detail-row">
+          <span>Telefon</span>
+          <strong><a href="tel:+49202478880">{{ business.phone }}</a></strong>
+        </div>
+        <div class="contact-detail-row">
+          <span>Gebiet</span>
+          <strong>{{ business.service_area }}</strong>
+        </div>
+      </div>
+      <div class="hero-actions compact-actions">
+        <a href="{{ url_for('kontakt') }}" class="btn btn-primary">Kontaktseite öffnen</a>
+      </div>
+    </article>
+    <article class="contact-map-card reveal">
+      <iframe
+        src="{{ business.maps_embed_url }}"
+        width="100%"
+        height="100%"
+        class="contact-map-frame"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Standort {{ business.name }}"
+      ></iframe>
+    </article>
+  </div>
+</section>
+
 <section class="section-block section-pale-blue cta-tail">
   <div class="container cta-band reveal">
     <div>
@@ -123,9 +258,13 @@
       <h2>Schicken Sie eine kurze Projektbeschreibung und erhalten Sie eine realistische erste Einschätzung.</h2>
     </div>
     <div class="cta-actions">
-      <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Anfrage starten</a>
+      <a href="#anfrage" class="btn btn-primary">Anfrage starten</a>
       <a href="tel:+49202478880" class="btn btn-secondary">{{ business.phone }}</a>
     </div>
   </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 {% endblock %}

@@ -30,6 +30,9 @@ BUSINESS = {
     "phone": "+49 202 478880",
     "address_line_1": "Varresbecker Str. 193",
     "address_line_2": "42115 Wuppertal",
+    "service_area": "Wuppertal und Umgebung",
+    "hours": "Termine nach Vereinbarung",
+    "maps_embed_url": "https://www.google.com/maps?q=Varresbecker+Str.+193,+42115+Wuppertal&output=embed",
 }
 
 SERVICES = [

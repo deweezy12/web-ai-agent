@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Anfrage stellen | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="section-block subpage-start">
-  <div class="container">
+<section class="section-block subpage-start section-light subpage-strip">
+  <div class="container inquiry-grid inquiry-grid-direct">
     <article class="content-panel reveal form-panel-direct">
+      <p class="section-kicker">Anfrage</p>
+      <h1 class="subpage-title">Schnell die wichtigsten Projektdaten senden.</h1>
+      <p class="subpage-intro">
+        Je klarer die Eckdaten, desto leichter ist eine erste Einschätzung zu Material, Aufwand und Ablauf.
+      </p>
       <form class="simple-form" action="#" method="post" novalidate>
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Ihr Name">
@@ -20,6 +25,22 @@
         <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
       </form>
     </article>
+    <aside class="content-panel reveal inquiry-side-tile">
+      <p class="section-kicker">Hilfreich</p>
+      <h2 class="panel-title">Diese Infos helfen für die erste Einordnung.</h2>
+      <ul class="check-list tile-list-dark">
+        <li>Ort, ungefähre Fläche und Einsatzbereich</li>
+        <li>Bad, Boden, Wohnbereich oder Sanierung</li>
+        <li>Materialidee und grober Zeitrahmen</li>
+      </ul>
+      <p class="tile-note">
+        Falls es schneller gehen soll, ist der direkte Kontakt oder der Live-Chat meist der beste erste Schritt.
+      </p>
+      <div class="hero-actions compact-actions">
+        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Direkt Kontakt</a>
+        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Live-Chat</a>
+      </div>
+    </aside>
   </div>
 </section>
 {% endblock %}

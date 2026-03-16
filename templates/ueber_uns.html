@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Über uns | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="section-block subpage-start">
+<section class="section-block subpage-start section-light subpage-strip">
   <div class="container two-column-copy">
     <article class="content-panel reveal">
       <p class="section-kicker">Über uns</p>
@@ -22,6 +22,16 @@
         und einem Blick für die gestalterische Wirkung. Ziel ist immer eine Fläche, die
         nicht beliebig wirkt, sondern zum Raum passt und langfristig überzeugt.
       </p>
+      <div class="mini-tile-grid">
+        <div class="mini-tile">
+          <strong>Präzise Ausführung</strong>
+          <span>Saubere Linien, ruhige Flächen und durchdachte Details.</span>
+        </div>
+        <div class="mini-tile">
+          <strong>Verlässliche Abstimmung</strong>
+          <span>Klare Kommunikation vor Beginn und während der Umsetzung.</span>
+        </div>
+      </div>
     </article>
     <article class="content-panel reveal">
       <p class="section-kicker">Unsere Arbeitsweise</p>
@@ -36,6 +46,16 @@
         Vorhabens, damit schnell eine erste Einordnung möglich ist. Für den nächsten
         Schritt nutzen Sie am besten die Anfrage-Seite oder nehmen direkt Kontakt auf.
       </p>
+      <div class="mini-tile-grid">
+        <div class="mini-tile">
+          <strong>Saubere Vorbereitung</strong>
+          <span>Untergrund, Aufbau und Material werden nicht dem Zufall überlassen.</span>
+        </div>
+        <div class="mini-tile">
+          <strong>Stimmiges Gesamtbild</strong>
+          <span>Technik und Gestaltung werden immer zusammen gedacht.</span>
+        </div>
+      </div>
       <div class="hero-actions compact-actions">
         <a href="{{ url_for('anfrage_stellen') }}" class="btn btn-primary">Anfrage stellen</a>
         <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt aufnehmen</a>

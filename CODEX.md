@@ -4,11 +4,13 @@ This file stores the current project state so future sessions can continue witho
 
 ## 1) Project Goal and Current Product
 
-The repository has been transformed from a Gradio chat demo into a business website for:
+The repository is a Flask/Jinja business website for:
 
 - Valerio Giuseppe Scaglione Fliesenlegerei (Wuppertal)
 
-Current website structure:
+Primary language/content style is German.
+
+Current routes still exist as separate Flask pages:
 
 - Startseite (`/`)
 - Ueber uns (`/ueber-uns`)
@@ -17,7 +19,11 @@ Current website structure:
 - Live Chat (`/live-chat`)
 - Footer pages: Impressum (`/impressum`), Datenschutz (`/datenschutz`)
 
-Primary language/content style is German.
+Important current UX decision:
+
+- The main navigation now behaves like a one-page website and links to anchored sections on the Startseite.
+- Users can scroll from top to bottom through the main content flow on `/`.
+- The standalone routes still exist and still render.
 
 ## 2) Tech Stack and Runtime
 
@@ -42,12 +48,13 @@ Runtime env vars expected:
   - Defines `/api/chat` POST endpoint
   - Uses fixed model ID: `claude-haiku-4-5-20251001`
   - Handles API errors and always returns JSON from chat endpoint
+  - Stores business data including service area, hours, and Google Maps embed URL
 
 ### Chat prompt
 
 - `prompt.txt`
-  - Now tailored for Fliesenleger guidance
-  - Instructs assistant to answer tiling questions and always guide user to contact Scaglione
+  - Tailored for Fliesenleger guidance
+  - Instructs assistant to answer tiling questions and guide users to direct contact
 
 ### Dependencies
 
@@ -56,26 +63,40 @@ Runtime env vars expected:
 
 ### Templates
 
-- `templates/base.html`: global layout/header/footer/nav
-- `templates/startseite.html`: hero + service cards
-- `templates/ueber_uns.html`: company/about content
-- `templates/anfrage_stellen.html`: form UI only (no submit backend yet)
-- `templates/kontakt.html`: contact details
-- `templates/live_chat.html`: chat page UI shell
+- `templates/base.html`
+  - Global layout/header/footer/nav
+  - Nav now points to Startseite anchor sections instead of route-first navigation
+- `templates/startseite.html`
+  - Main one-page flow
+  - Includes hero, services, why-us, process, ueber-uns section, anfrage section, live-chat section, kontakt section, final CTA
+  - Includes chat JS because the live chat is embedded on the homepage
+- `templates/ueber_uns.html`
+  - Standalone about page
+- `templates/anfrage_stellen.html`
+  - Standalone inquiry page
+- `templates/kontakt.html`
+  - Standalone contact page
+  - Uses a two-column layout with contact card + embedded Google Map iframe
+- `templates/live_chat.html`
+  - Standalone chat page UI shell
 - `templates/impressum.html`
 - `templates/datenschutz.html`
 
 ### Styling and behavior
 
 - `static/css/style.css`
-  - White/grey/blue visual system
-  - Greyer background
-  - Blue header
-  - Responsive layout
+  - Current design direction is deep blue + white + light blue
+  - Dark blue header
+  - Full-width section blocks / tile-like strips
+  - Less rounded, more squared visual language
+  - Header is no longer sticky
+  - Mobile topbar is hidden
+  - Footer is full-width and visually integrated with the page
 - `static/js/chat.js`
   - Sends requests to `/api/chat`
   - Maintains local history array
   - Robust handling for non-JSON / server errors
+  - Used both on standalone Live Chat page and embedded homepage section
 
 ### Logo
 
@@ -91,6 +112,9 @@ Hardcoded in `BUSINESS` dictionary in `app.py`:
 - Owner: Valerio Scaglione
 - Phone: +49 202 478880
 - Address: Varresbecker Str. 193, 42115 Wuppertal
+- Service area: Wuppertal und Umgebung
+- Hours note: Termine nach Vereinbarung
+- Maps embed URL: Google Maps embed based on business address
 
 Service list (used on Startseite):
 
@@ -100,16 +124,40 @@ Service list (used on Startseite):
 - Reparatur- und Ausbesserungsarbeiten
 - Beratung und Aufmass
 
-## 5) Known Decisions Taken
+## 5) Current Design Decisions
+
+- Main color direction: dark deep blue, white, light blue
+- Homepage section flow:
+  - dark hero
+  - white block
+  - dark blue block
+  - pale blue block
+  - additional anchored content sections below
+- Large rounded cards were intentionally reduced in favor of more squared "tile" sections
+- Header should not stick while scrolling
+- Footer and hero should visually stretch full width
+- Contact style was partially inspired by local repo `git/gelenkwerk-physio`
+  - especially the contact card + embedded map composition
+
+## 6) Known Decisions Taken
 
 - The old Gradio UI was replaced by normal multipage Flask website.
-- Live Chat remains a real AI chat feature (not placeholder).
+- Live Chat remains a real AI chat feature, not a placeholder.
 - Chat prompt was migrated from beauty-domain content to tiling-domain content.
 - Model is fixed by user request to `claude-haiku-4-5-20251001`.
-- Model is intentionally NOT environment-configured (user preference).
-- Anfrage page currently has UI only and intentionally no submit handling.
+- Model is intentionally NOT environment-configured.
+- Separate routes remain available even though the homepage now acts like a one-page scroll experience.
 
-## 6) Common Errors and Current Handling
+## 7) Open UX / Content Notes
+
+This is important for the next session:
+
+- User explicitly said the website currently feels a bit text-bloated.
+- Next design/content pass should remove some explanatory copy and shorten sections.
+- User liked the current direction overall, but wants less text density.
+- User also asked for smaller typography, especially in the footer, and that work has already been started.
+
+## 8) Common Errors and Current Handling
 
 ### Error seen previously
 
@@ -122,7 +170,7 @@ Service list (used on Startseite):
 - Anthropic 404 not_found for some model IDs.
   - Current state: fixed model ID set to `claude-haiku-4-5-20251001` per user request.
 
-## 7) Local Development Workflow
+## 9) Local Development Workflow
 
 Conda example:
 
@@ -142,7 +190,7 @@ Open:
 - `https://web-ai-agent.onrender.com/`
 - `https://web-ai-agent.onrender.com/live-chat`
 
-## 8) Deploy Workflow (Render)
+## 10) Deploy Workflow (Render)
 
 Current deployed site:
 
@@ -158,21 +206,24 @@ git push origin main
 
 Render should auto-deploy from GitHub integration.
 
-## 9) Suggested Next Improvements (Backlog)
+## 11) Suggested Next Improvements (Backlog)
 
-- Implement actual submit backend for `Anfrage stellen` (email/CRM webhook).
-- Replace placeholder hero image with real project photos.
-- Expand legal texts for production-grade compliance.
-- Add spam protection/rate limiting for `/api/chat`.
-- Optional: add chat widget fixed bottom-right globally (user mentioned as possible future direction).
+- Reduce text density on homepage and subpages
+- Tighten spacing and simplify copy in sections that feel too explanatory
+- If needed, unify remaining typography sizing across all templates
+- Implement actual submit backend for `Anfrage stellen` (email/CRM webhook)
+- Replace placeholder hero image treatment with real project photos
+- Expand legal texts for production-grade compliance
+- Add spam protection/rate limiting for `/api/chat`
 
-## 10) Important Note for Future Sessions
+## 12) Important Note for Future Sessions
 
 When continuing this project, treat `CODEX.md` as the source of truth for:
 
 - current architecture,
 - user preferences,
 - model choice decision,
+- design direction,
 - and pending roadmap.
 
 If any conflict appears between memory and code, code currently wins; then update this file.
