@@ -210,10 +210,10 @@
 </section>
 
 <section class="section-block section-light subpage-strip" id="kontakt">
-  <div class="container contact-preview-grid contact-preview-grid-map">
-    <article class="content-panel reveal contact-preview-main">
+  <div class="container contact-showcase contact-showcase-slim">
+    <article class="content-panel reveal contact-preview-main contact-showcase-card-slim">
       <p class="section-kicker">Kontakt</p>
-      <div class="contact-detail-list">
+      <div class="contact-detail-list contact-detail-list-slim">
         <div class="contact-detail-row">
           <span>Adresse</span>
           <strong>{{ business.address_line_1 }}<br>{{ business.address_line_2 }}</strong>
@@ -222,21 +222,17 @@
           <span>Telefon</span>
           <strong><a href="tel:+49202478880">{{ business.phone }}</a></strong>
         </div>
-        <div class="contact-detail-row">
-          <span>Gebiet</span>
-          <strong>{{ business.service_area }}</strong>
-        </div>
       </div>
       <div class="hero-actions compact-actions">
         <a href="{{ url_for('kontakt') }}" class="btn btn-primary">Kontaktseite öffnen</a>
       </div>
     </article>
-    <article class="contact-map-card reveal">
+    <article class="contact-map-card reveal contact-map-card-slim">
       <iframe
         src="{{ business.maps_embed_url }}"
         width="100%"
         height="100%"
-        class="contact-map-frame"
+        class="contact-map-frame contact-map-frame-slim"
         allowfullscreen
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

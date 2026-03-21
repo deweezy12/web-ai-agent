@@ -2,16 +2,11 @@
 {% block title %}Kontakt | {{ business.name }}{% endblock %}
 {% block content %}
 <section class="section-block subpage-start section-light subpage-strip">
-  <div class="container contact-showcase">
-    <article class="contact-card reveal contact-showcase-card">
-      <p class="section-kicker">Wir freuen uns auf Sie</p>
-      <h1 class="subpage-title">Kontakt</h1>
-      <p class="contact-showcase-copy">
-        Für eine erste Einschätzung reichen oft wenige Angaben. Adresse, telefonischer Kontakt
-        und der direkte Weg zur Anfrage sind hier klar gebündelt.
-      </p>
+  <div class="container contact-showcase contact-showcase-slim">
+    <article class="contact-card reveal contact-showcase-card contact-showcase-card-slim">
+      <p class="section-kicker">Kontakt</p>
 
-      <div class="contact-detail-list">
+      <div class="contact-detail-list contact-detail-list-slim">
         <div class="contact-detail-item">
           <div class="contact-icon-box">01</div>
           <div>
@@ -26,20 +21,6 @@
             <div class="contact-detail-text"><a href="tel:+49202478880">{{ business.phone }}</a></div>
           </div>
         </div>
-        <div class="contact-detail-item">
-          <div class="contact-icon-box">03</div>
-          <div>
-            <div class="contact-detail-label">Gebiet</div>
-            <div class="contact-detail-text">{{ business.service_area }}</div>
-          </div>
-        </div>
-        <div class="contact-detail-item">
-          <div class="contact-icon-box">04</div>
-          <div>
-            <div class="contact-detail-label">Termin</div>
-            <div class="contact-detail-text">{{ business.hours }}</div>
-          </div>
-        </div>
       </div>
 
       <div class="hero-actions compact-actions">
@@ -48,12 +29,12 @@
       </div>
     </article>
 
-    <article class="contact-map-card reveal">
+    <article class="contact-map-card reveal contact-map-card-slim">
       <iframe
         src="{{ business.maps_embed_url }}"
         width="100%"
         height="100%"
-        class="contact-map-frame"
+        class="contact-map-frame contact-map-frame-slim"
         allowfullscreen
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

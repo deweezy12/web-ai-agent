@@ -259,6 +259,7 @@ p {
 .process-step,
 .content-panel,
 .contact-card,
+.contact-map-card,
 .cta-band,
 .chat-shell {
   animation: fadeUp 540ms ease both;
@@ -655,6 +656,11 @@ p {
   align-items: stretch;
 }
 
+.contact-showcase-slim {
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  align-items: start;
+}
+
 .legal-wrapper {
   grid-template-columns: minmax(0, 1fr);
 }
@@ -852,6 +858,14 @@ p {
   margin: 1rem 0 1.6rem;
 }
 
+.contact-showcase-card-slim {
+  padding: 1.4rem;
+}
+
+.contact-detail-list-slim {
+  gap: 0.5rem;
+}
+
 .contact-detail-list {
   display: grid;
   gap: 1rem;
@@ -910,12 +924,22 @@ p {
   overflow: hidden;
 }
 
+.contact-map-card-slim {
+  min-height: 14rem;
+  grid-template-rows: 14rem auto;
+}
+
 .contact-map-frame {
   display: block;
   width: 100%;
   min-height: 26rem;
   height: 26rem;
   border: 0;
+}
+
+.contact-map-frame-slim {
+  min-height: 14rem;
+  height: 14rem;
 }
 
 .map-link-bar {
@@ -1140,6 +1164,16 @@ p {
   .contact-map-frame {
     min-height: 22rem;
     height: 22rem;
+  }
+
+  .contact-map-card-slim {
+    min-height: 12rem;
+    grid-template-rows: 12rem auto;
+  }
+
+  .contact-map-frame-slim {
+    min-height: 12rem;
+    height: 12rem;
   }
 
   .chat-form {
