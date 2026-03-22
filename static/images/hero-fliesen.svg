@@ -1,0 +1,102 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#102543"/>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <g opacity="0.2">
+    <path d="M0 120H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 250H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 380H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 510H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 640H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 770H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M0 900H1600" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M180 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M390 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M600 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M810 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M1020 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M1230 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+    <path d="M1440 0V1000" stroke="#E9F3FF" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.96">
+    <path d="M920 178H1600V1000H660L920 178Z" fill="url(#wall)"/>
+    <path d="M920 178L660 1000H0V1000V458L920 178Z" fill="url(#floor)"/>
+  </g>
+
+  <g opacity="0.55">
+    <path d="M920 178L660 1000" stroke="#F4F9FF" stroke-width="3"/>
+    <path d="M1020 178L760 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M1125 178L865 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M1230 178L970 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M1335 178L1075 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M1440 178L1180 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M1545 178L1285 1000" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M920 290H1562" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M880 410H1520" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M838 540H1478" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M798 670H1436" stroke="#F4F9FF" stroke-width="2"/>
+    <path d="M756 800H1394" stroke="#F4F9FF" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.85">
+    <path d="M295 618L468 532L584 633L401 721L295 618Z" fill="url(#tile1)"/>
+    <path d="M474 532L653 449L762 548L587 635L474 532Z" fill="url(#tile2)"/>
+    <path d="M657 449L838 365L942 459L765 548L657 449Z" fill="url(#tile1)"/>
+    <path d="M413 724L594 637L707 737L522 830L413 724Z" fill="url(#tile2)"/>
+    <path d="M595 637L775 549L886 646L706 737L595 637Z" fill="url(#tile1)"/>
+    <path d="M776 549L956 460L1062 554L886 646L776 549Z" fill="url(#tile2)"/>
+  </g>
+
+  <g opacity="0.92">
+    <rect x="1105" y="292" width="250" height="385" fill="url(#slab)"/>
+    <rect x="1123" y="310" width="214" height="349" stroke="#F0F7FF" stroke-width="2"/>
+    <path d="M1136 338C1196 316 1258 316 1326 342" stroke="#F7FBFF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1136 455C1210 429 1269 433 1332 464" stroke="#F7FBFF" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M1136 590C1204 559 1270 563 1330 599" stroke="#F7FBFF" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.95">
+    <path d="M1012 720C1048 694 1092 691 1128 712L1122 758C1088 778 1050 780 1015 764L1012 720Z" fill="#C7DCF4"/>
+    <path d="M1090 675C1139 644 1210 642 1265 672L1265 758C1215 781 1142 782 1092 754L1090 675Z" fill="#EAF4FF"/>
+    <path d="M1166 601C1206 580 1268 579 1317 600L1310 681C1260 703 1205 706 1164 685L1166 601Z" fill="#D7E7F8"/>
+    <path d="M1003 713L1091 668" stroke="#EDF6FF" stroke-width="4"/>
+    <path d="M1090 668L1168 598" stroke="#EDF6FF" stroke-width="4"/>
+  </g>
+
+  <rect width="1600" height="1000" fill="url(#overlay)"/>
+
+  <defs>
+    <linearGradient id="bg" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#244B80"/>
+      <stop offset="0.5" stop-color="#173557"/>
+      <stop offset="1" stop-color="#0C1C31"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="1130" y1="178" x2="1130" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A2C0E0"/>
+      <stop offset="1" stop-color="#476D98"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="460" y1="178" x2="460" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6F95BF"/>
+      <stop offset="1" stop-color="#163252"/>
+    </linearGradient>
+    <linearGradient id="tile1" x1="619" y1="365" x2="619" y2="830" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8E9F9"/>
+      <stop offset="1" stop-color="#88A9CB"/>
+    </linearGradient>
+    <linearGradient id="tile2" x1="678" y1="449" x2="678" y2="830" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF6FE"/>
+      <stop offset="1" stop-color="#ABC3DE"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="1230" y1="292" x2="1230" y2="677" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF6FF"/>
+      <stop offset="1" stop-color="#8DAFCE"/>
+    </linearGradient>
+    <linearGradient id="overlay" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#091627" stop-opacity="0.82"/>
+      <stop offset="0.34" stop-color="#0D213A" stop-opacity="0.68"/>
+      <stop offset="0.72" stop-color="#0F2744" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#102543" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+</svg>

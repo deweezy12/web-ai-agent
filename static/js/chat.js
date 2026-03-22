@@ -3,18 +3,31 @@
   const input = document.getElementById("chat-input");
   const log = document.getElementById("chat-log");
   const send = document.getElementById("chat-send");
+
+  if (!form || !input || !log || !send) {
+    return;
+  }
+
   const history = [];
 
   function append(text, role) {
-    const p = document.createElement("p");
-    p.className = "msg " + (role === "user" ? "msg-user" : "msg-bot");
-    p.textContent = text;
-    log.appendChild(p);
+    const message = document.createElement("p");
+    message.className = "msg " + (role === "user" ? "msg-user" : "msg-bot");
+    message.textContent = text;
+    log.appendChild(message);
     log.scrollTop = log.scrollHeight;
   }
 
   async function ask(message) {
     send.disabled = true;
+    send.textContent = "Wird gesendet...";
+    form.setAttribute("aria-busy", "true");
+
+    const chatShell = document.getElementById("chat-shell");
+    if (chatShell) {
+      chatShell.dataset.busy = "true";
+    }
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -47,16 +60,24 @@
       append("Fehler: " + error.message, "bot");
     } finally {
       send.disabled = false;
+      send.textContent = "Senden";
+      form.setAttribute("aria-busy", "false");
+      if (chatShell) {
+        chatShell.dataset.busy = "false";
+      }
       input.focus();
     }
   }
 
-  append("Willkommen im Live-Chat. Wobei kann ich Sie zu Fliesenarbeiten unterstützen?", "bot");
+  append("Willkommen im Live-Chat. Stellen Sie gern eine kurze Frage zu Ablauf, Material oder Umfang Ihres Projekts.", "bot");
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const message = input.value.trim();
-    if (!message) return;
+    if (!message) {
+      return;
+    }
+
     append(message, "user");
     input.value = "";
     ask(message);

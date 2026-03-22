@@ -5,6 +5,7 @@
   <div class="container contact-showcase contact-showcase-slim">
     <article class="contact-card reveal contact-showcase-card contact-showcase-card-slim">
       <p class="section-kicker">Kontakt</p>
+      <h1 class="subpage-title">Direkte Kontaktaufnahme ohne unnötige Zwischenstufe.</h1>
 
       <div class="contact-detail-list contact-detail-list-slim">
         <div class="contact-detail-item">
@@ -21,11 +22,18 @@
             <div class="contact-detail-text"><a href="tel:+49202478880">{{ business.phone }}</a></div>
           </div>
         </div>
+        <div class="contact-detail-item">
+          <div class="contact-icon-box">03</div>
+          <div>
+            <div class="contact-detail-label">Verfügbarkeit</div>
+            <div class="contact-detail-text">{{ business.hours }}</div>
+          </div>
+        </div>
       </div>
 
       <div class="hero-actions compact-actions">
-        <a href="{{ url_for('startseite') }}#anfrage" class="btn btn-primary">Zur Anfrage</a>
-        <a href="{{ url_for('startseite') }}#live-chat" class="btn btn-secondary">Live-Chat</a>
+        <a href="tel:+49202478880" class="btn btn-primary">Jetzt anrufen</a>
+        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Live-Chat</a>
       </div>
     </article>
 

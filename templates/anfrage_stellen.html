@@ -1,44 +1,41 @@
 {% extends "base.html" %}
 {% block title %}Anfrage stellen | {{ business.name }}{% endblock %}
 {% block content %}
-<section class="section-block subpage-start section-light subpage-strip">
-  <div class="container inquiry-grid inquiry-grid-direct">
-    <article class="content-panel reveal form-panel-direct">
+<section class="section-block subpage-start section-deep subpage-strip">
+  <div class="container inquiry-layout">
+    <article class="content-panel reveal inquiry-main-panel">
       <p class="section-kicker">Anfrage</p>
-      <h1 class="subpage-title">Schnell die wichtigsten Projektdaten senden.</h1>
-      <p class="subpage-intro">
-        Je klarer die Eckdaten, desto leichter ist eine erste Einschätzung zu Material, Aufwand und Ablauf.
+      <h1 class="subpage-title">Schnelle Ersteinschätzung für Ihr Projekt.</h1>
+      <p class="subpage-intro inquiry-intro-light">
+        Beschreiben Sie kurz Raum, Fläche, Materialwunsch und Art der Arbeiten.
+        So lässt sich der nächste Schritt schneller und klarer abstimmen.
       </p>
-      <form class="simple-form" action="#" method="post" novalidate>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Ihr Name">
-
-        <label for="telefon">Telefon</label>
-        <input id="telefon" name="telefon" type="tel" placeholder="Ihre Telefonnummer">
-
-        <label for="adresse">Projektadresse</label>
-        <input id="adresse" name="adresse" type="text" placeholder="Straße, Ort">
-
-        <label for="anliegen">Projektbeschreibung</label>
-        <textarea id="anliegen" name="anliegen" rows="6" placeholder="Welche Arbeiten sind geplant?"></textarea>
-
-        <button type="button" class="btn btn-primary" disabled>Versand folgt im nächsten Schritt</button>
-      </form>
+      <div class="process-steps">
+        <article class="process-step reveal">
+          <span>01</span>
+          <h3>Projekt beschreiben</h3>
+          <p>Nennen Sie Einsatzbereich, Fläche und ob es um Verlegung, Sanierung oder Reparatur geht.</p>
+        </article>
+        <article class="process-step reveal">
+          <span>02</span>
+          <h3>Kontakt aufnehmen</h3>
+          <p>Telefonisch oder per Live-Chat für eine erste Einordnung.</p>
+        </article>
+        <article class="process-step reveal">
+          <span>03</span>
+          <h3>Nächsten Schritt klären</h3>
+          <p>Aufmaß, Materialwahl und Ablauf werden passend zum Vorhaben abgestimmt.</p>
+        </article>
+      </div>
     </article>
-    <aside class="content-panel reveal inquiry-side-tile">
-      <p class="section-kicker">Hilfreich</p>
-      <h2 class="panel-title">Diese Infos helfen für die erste Einordnung.</h2>
-      <ul class="check-list tile-list-dark">
-        <li>Ort, ungefähre Fläche und Einsatzbereich</li>
-        <li>Bad, Boden, Wohnbereich oder Sanierung</li>
-        <li>Materialidee und grober Zeitrahmen</li>
-      </ul>
-      <p class="tile-note">
-        Falls es schneller gehen soll, ist der direkte Kontakt oder der Live-Chat meist der beste erste Schritt.
-      </p>
-      <div class="hero-actions compact-actions">
-        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Direkt Kontakt</a>
-        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Live-Chat</a>
+
+    <aside class="content-panel reveal inquiry-side-panel">
+      <p class="section-kicker">Kontaktwege</p>
+      <h2 class="panel-title">Direkt erreichbar</h2>
+      <div class="action-stack">
+        <a href="tel:+49202478880" class="btn btn-primary">Jetzt anrufen</a>
+        <a href="{{ url_for('live_chat') }}" class="btn btn-secondary">Zum Live-Chat</a>
+        <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontaktseite öffnen</a>
       </div>
     </aside>
   </div>

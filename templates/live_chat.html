@@ -2,15 +2,30 @@
 {% block title %}Live-Chat | {{ business.name }}{% endblock %}
 {% block content %}
 <section class="section-block subpage-start section-light subpage-strip">
-  <div class="container">
+  <div class="container chat-review-layout">
+    <article class="content-panel reveal chat-review-copy">
+      <p class="section-kicker">Live-Chat</p>
+      <h1 class="subpage-title">Kurze Fragen direkt klären.</h1>
+      <p>
+        Der Live-Chat eignet sich für eine erste Orientierung zu Materialien,
+        Projektumfang, Ablauf und den nächsten sinnvollen Schritten.
+      </p>
+      <ul class="check-list">
+        <li>Fragen zu Badsanierung, Fliesenwahl oder Reparaturen</li>
+        <li>Kurze Einschätzung vor dem ersten Termin</li>
+        <li>Direkter Kontakt ohne Umweg</li>
+      </ul>
+    </article>
+
     <article class="chat-shell reveal chat-shell-direct" id="chat-shell">
       <div class="chat-shell-head">
-        <p class="section-kicker">Live-Chat</p>
-        <h1 class="subpage-title">Direkt Ihre Frage stellen</h1>
+        <p class="section-kicker">Direkt fragen</p>
+        <h2 class="subpage-title">Nachricht senden</h2>
       </div>
-      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <div class="chat-log" id="chat-log" aria-live="polite" aria-atomic="false"></div>
       <form class="chat-form" id="chat-form">
-        <input id="chat-input" type="text" placeholder="Ihre Nachricht..." autocomplete="off" required>
+        <label for="chat-input" class="sr-only">Nachricht eingeben</label>
+        <input id="chat-input" type="text" placeholder="Zum Beispiel: Welche Angaben helfen für eine erste Einschätzung?" autocomplete="off" required>
         <button type="submit" class="btn btn-primary" id="chat-send">Senden</button>
       </form>
     </article>
