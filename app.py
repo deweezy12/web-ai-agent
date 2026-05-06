@@ -21,6 +21,7 @@ def get_allowed_origins():
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "https://deweezy12.github.io",
+        "https://theredds.eu",
     ]
 
     if not raw_origins:
