@@ -39,7 +39,10 @@ CORS(
         r"/api/*": {
             "origins": get_allowed_origins(),
             "methods": ["GET", "POST", "OPTIONS"],
-            "allow_headers": ["Content-Type"],
+            "allowed_headers": ["Content-Type"],
+            "expose_headers": ["Content-Type"],
+            "supports_credentials": False,
+            "max_age": 3600,
         }
     },
 )
