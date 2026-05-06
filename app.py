@@ -33,19 +33,9 @@ def get_allowed_origins():
     return [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
 
 
-CORS(
-    app,
-    resources={
-        r"/api/*": {
-            "origins": get_allowed_origins(),
-            "methods": ["GET", "POST", "OPTIONS"],
-            "allowed_headers": ["Content-Type"],
-            "expose_headers": ["Content-Type"],
-            "supports_credentials": False,
-            "max_age": 3600,
-        }
-    },
-)
+# Configure CORS - allow specified origins for API routes
+# Temporary: Enable for all routes to debug
+CORS(app, origins=get_allowed_origins())
 
 with (BASE_DIR / "prompt.txt").open("r", encoding="utf-8") as f:
     SYSTEM_PROMPT = f.read()
