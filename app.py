@@ -51,16 +51,14 @@ CORS(app,
 @app.after_request
 def add_cors_headers(response):
     origin = request.headers.get('Origin')
-    allowed_origins = get_allowed_origins()
     
-    # Check if origin is allowed
-    if allowed_origins == "*":
-        response.headers['Access-Control-Allow-Origin'] = "*"
-    elif origin in allowed_origins:
-        response.headers['Access-Control-Allow-Origin'] = origin
-    
-    # Add other CORS headers for API routes
+    # Only handle CORS for API routes
     if request.path.startswith('/api/'):
+        # TEMPORARY: Allow all origins for debugging
+        if origin:
+            response.headers['Access-Control-Allow-Origin'] = origin
+        
+        # Add other CORS headers
         response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
         response.headers['Access-Control-Max-Age'] = '3600'
