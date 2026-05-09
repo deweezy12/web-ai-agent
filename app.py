@@ -36,7 +36,7 @@ def get_allowed_origins():
 
 # Configure CORS - allow specified origins for API routes
 CORS(app, 
-     origins=get_allowed_origins(),
+     resources={r"/api/*": {"origins": get_allowed_origins()}},
      methods=["GET", "POST", "OPTIONS"],
      allow_headers=["Content-Type"],
      supports_credentials=False)
