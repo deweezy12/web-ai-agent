@@ -46,6 +46,27 @@ CORS(app,
      },
      supports_credentials=False)
 
+
+# Manual CORS handling as fallback
+@app.after_request
+def add_cors_headers(response):
+    origin = request.headers.get('Origin')
+    allowed_origins = get_allowed_origins()
+    
+    # Check if origin is allowed
+    if allowed_origins == "*":
+        response.headers['Access-Control-Allow-Origin'] = "*"
+    elif origin in allowed_origins:
+        response.headers['Access-Control-Allow-Origin'] = origin
+    
+    # Add other CORS headers for API routes
+    if request.path.startswith('/api/'):
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+        response.headers['Access-Control-Max-Age'] = '3600'
+    
+    return response
+
 with (BASE_DIR / "prompt.txt").open("r", encoding="utf-8") as f:
     SYSTEM_PROMPT = f.read()
 
@@ -141,8 +162,13 @@ def api_health():
     return jsonify({"ok": True})
 
 
-@app.route("/api/chat", methods=["POST"])
+@app.route("/api/chat", methods=["OPTIONS", "POST"])
 def api_chat():
+    # Handle OPTIONS preflight
+    if request.method == "OPTIONS":
+        return "", 204
+    
+    # Handle POST request
     try:
         if not os.environ.get("ANTHROPIC_API_KEY"):
             return jsonify({"error": "ANTHROPIC_API_KEY is not set"}), 500
