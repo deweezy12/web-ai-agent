@@ -22,6 +22,7 @@ def get_allowed_origins():
         "http://127.0.0.1:5173",
         "https://deweezy12.github.io",
         "https://theredds.eu",
+        "https://www.spacefieldmedia.com",
     ]
 
     if not raw_origins:
@@ -34,8 +35,11 @@ def get_allowed_origins():
 
 
 # Configure CORS - allow specified origins for API routes
-# Temporary: Enable for all routes to debug
-CORS(app, origins=get_allowed_origins())
+CORS(app, 
+     origins=get_allowed_origins(),
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type"],
+     supports_credentials=False)
 
 with (BASE_DIR / "prompt.txt").open("r", encoding="utf-8") as f:
     SYSTEM_PROMPT = f.read()
@@ -130,6 +134,22 @@ def datenschutz():
 @app.get("/api/health")
 def api_health():
     return jsonify({"ok": True})
+
+
+@app.options("/api/chat")
+def api_chat_options():
+    """Handle CORS preflight requests for /api/chat"""
+    response = jsonify({"ok": True})
+    origin = request.headers.get('Origin')
+    allowed = get_allowed_origins()
+    
+    if allowed == "*" or origin in allowed:
+        response.headers['Access-Control-Allow-Origin'] = origin if allowed != "*" else "*"
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+        response.headers['Access-Control-Max-Age'] = '3600'
+    
+    return response, 200
 
 
 @app.post("/api/chat")
