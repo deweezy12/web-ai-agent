@@ -136,7 +136,7 @@ def api_health():
     return jsonify({"ok": True})
 
 
-@app.options("/api/chat")
+@app.route("/api/chat", methods=["OPTIONS"])
 def api_chat_options():
     """Handle CORS preflight requests for /api/chat"""
     response = jsonify({"ok": True})
@@ -152,7 +152,7 @@ def api_chat_options():
     return response, 200
 
 
-@app.post("/api/chat")
+@app.route("/api/chat", methods=["POST"])
 def api_chat():
     try:
         if not os.environ.get("ANTHROPIC_API_KEY"):
